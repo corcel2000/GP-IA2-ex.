@@ -124,31 +124,34 @@ document.addEventListener("DOMContentLoaded", function () {
     let attempts = 0;
     const maxAttempts = 3;
 
-    document.getElementById("form").addEventListener("submit", function (event) {
-        event.preventDefault();
+    const loginForm = document.getElementById("form");
 
-        const identifierInput = document.getElementById("login-identifier").value.trim();
-        const passwordInput = document.getElementById("login-password").value;
+    // Only run login logic if login form is present
+    if (loginForm) {
+        loginForm.addEventListener("submit", function (event) {
+            event.preventDefault();
 
-        // Fetch users from localStorage
-        const users = JSON.parse(localStorage.getItem("registrationData")) || [];
+            const trnInput = document.getElementById("trn").value.trim();
+            const passwordInput = document.getElementById("password").value;
 
-        // Look for a matching user
-        const matchedUser = users.find(user => user.trn === identifierInput && user.password === passwordInput);
+            const users = JSON.parse(localStorage.getItem("registrationData")) || [];
 
-        if (matchedUser) {
-            alert("Login successful!");
-            window.location.href = "creation_studio.html";
-        } else {
-            attempts++;
-            alert("Invalid login. You have ${maxAttempts - attempts} attempts left.");
+            const matchedUser = users.find(user => user.trn === trnInput && user.password === passwordInput);
 
-            if (attempts >= maxAttempts) {
-                alert("Too many failed attempts! Redirecting to an error page.");
-                window.location.href = "error.html";
+            if (matchedUser) {
+                alert("Login successful!");
+                window.location.href = "creation_studio.html";
+            } else {
+                attempts++;
+                alert(`Invalid login. You have ${maxAttempts - attempts} attempts left.`);
+
+                if (attempts >= maxAttempts) {
+                    alert("Too many failed attempts! Redirecting to an error page.");
+                    window.location.href = "error.html";
+                }
             }
-        }
-    });
+        });
+    }
 });
 
 // Shop products list for dynamic displaying
