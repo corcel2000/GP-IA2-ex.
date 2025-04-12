@@ -40,9 +40,6 @@ window.addEventListener('load', () => {
 document.getElementById("registerForm").addEventListener("submit", function (e) {
             e.preventDefault();
 
-	    const errorMessage = document.getElementById("errorMessage");
-	    errorMessage.textContent = ""; // Clear previous error messages
-
             const firstname = document.getElementById("firstname").value.trim();
             const lastname = document.getElementById("lastname").value.trim();
             const dob = document.getElementById("dob").value;
@@ -88,8 +85,15 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
                 errorMessage.textContent = "TRN already registered.";
                 return;
             }
+	
+            // Save to localStorage
+            users.push(newUser);
+            localStorage.setItem("RegistrationData", JSON.stringify(users));
+            alert("Registration successful!");
+	    window.location.href = "login.html";
+            document.getElementById("registerForm").reset();
 
-            // Create new user object
+	 // Create new user object
             const newUser = {
                 firstName: firstname,
                 lastName: lastname,
@@ -104,12 +108,6 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
                 invoices: []
             };
 
-            // Save to localStorage
-            users.push(newUser);
-            localStorage.setItem("RegistrationData", JSON.stringify(users));
-            alert("Registration successful!");
-	    window.location.href = "index.html";
-            document.getElementById("registerForm").reset();
         });
 
         document.getElementById("cancel-btn").addEventListener("click", function () {
