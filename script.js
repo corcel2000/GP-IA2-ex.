@@ -36,85 +36,86 @@ window.addEventListener('load', () => {
     }
 });
 
-// Register script Section
-document.getElementById("registerForm").addEventListener("submit", function (event) {
-            event.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+    const registerForm = document.getElementById("registerForm");
+    const cancelBtn = document.getElementById("cancel-btn");
 
-            const firstname = document.getElementById("firstname").value.trim();
-            const lastname = document.getElementById("lastname").value.trim();
-            const dob = document.getElementById("dob").value;
-            const gender = document.getElementById("gender").value;
-            const phone = document.getElementById("phone").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const trn = document.getElementById("trn").value.trim();
-            const password = document.getElementById("password").value;
+    registerForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-            // Check age
-            const birthDate = new Date(dob);
-            const today = new Date();
-            const age = today.getFullYear() - birthDate.getFullYear();
-            const monthDiff = today.getMonth() - birthDate.getMonth();
-            const dayDiff = today.getDate() - birthDate.getDate();
-            
-	    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
-                age--;
-            }
-            if (age < 18) {
-                alert("You must be at least 18 years old to register.");
-                return;
-            }
+        const firstname = document.getElementById("firstname").value.trim();
+        const lastname = document.getElementById("lastname").value.trim();
+        const dob = document.getElementById("dob").value;
+        const gender = document.getElementById("gender").value;
+        const phone = document.getElementById("phone").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const trn = document.getElementById("trn").value.trim();
+        const password = document.getElementById("password").value;
 
-            // Check password
-            if (password.length < 8) {
-                alert("Password must be at least 8 characters long.");
-                return;
-            }
+        // Age check
+        const birthDate = new Date(dob);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+        const dayDiff = today.getDate() - birthDate.getDate();
+        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+            age--;
+        }
 
-            // Check TRN format
-            const trnPattern = /^\d{3}-\d{3}-\d{3}$/;
-            if (!trnPattern.test(trn)) {
-                alert("TRN must be in the format 000-000-000.");
-                return;
-            }
+        if (age < 18) {
+            alert("You must be at least 18 years old to register.");
+            return;
+        }
 
-            // Get existing data
-            let users = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+        // Password length
+        if (password.length < 8) {
+            alert("Password must be at least 8 characters long.");
+            return;
+        }
 
-            // Check TRN uniqueness
-            if (users.some(user => user.trn === trn)) {
-                alert("TRN already registered.");
-                return;
-            }
-	
-	 // Create new user object
-            const newUser = {
-                firstName: firstname,
-                lastName: lastname,
-                dob: dob,
-                gender: gender,
-                phone: phone,
-                email: email,
-                trn: trn,
-                password: password,
-                registrationDate: new Date().toISOString(),
-                cart: {},
-                invoices: []
-	};
-            // Save to localStorage
+        // TRN format
+        const trnPattern = /^\d{3}-\d{3}-\d{3}$/;
+        if (!trnPattern.test(trn)) {
+            alert("TRN must be in the format 000-000-000.");
+            return;
+        }
+
+        // Get existing users
+        const users = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+
+        // TRN uniqueness check
+        if (users.some(user => user.trn === trn)) {
+            alert("TRN already registered.");
+            return;
+        }
+
+        // New user object
+        const newUser = {
+            firstName: firstname,
+            lastName: lastname,
+            dob: dob,
+            gender: gender,
+            phone: phone,
+            email: email,
+            trn: trn,
+            password: password,
+            registrationDate: new Date().toISOString(),
+            cart: {},
+            invoices: []
+        };
+
+        // Save and redirect
         users.push(newUser);
-	localStorage.setItem("RegistrationData", JSON.stringify(users));
-	
+        localStorage.setItem("RegistrationData", JSON.stringify(users));
         alert("Registration successful!");
-        document.getElementById("registerForm").reset();
+        registerForm.reset();
         window.location.href = "login.html";
+    });
 
-        });
-
-        document.getElementById("cancel-btn").addEventListener("click", function () {
-        document.getElementById("registerForm").reset();
-	document.getElementById("errorMessage").textContent = "";
-        });
-
+    cancelBtn.addEventListener("click", function () {
+        registerForm.reset();
+    });
+});
 // Login script Section
 document.addEventListener("DOMContentLoaded", function () {
     let attempts = 0;
