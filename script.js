@@ -39,7 +39,7 @@ window.addEventListener('load', () => {
 // Register script Section
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("form");
-    const cancelBtn = document.getElementById("cancel-btn");
+    const cancel-btn = document.getElementById("cancel-btn");
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Get existing users
-        const users = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+        const users = JSON.parse(localStorage.getItem("registrationData")) || [];
 
         // TRN uniqueness check
         if (users.some(user => user.trn === trn)) {
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Save and redirect
         users.push(newUser);
-        localStorage.setItem("RegistrationData", JSON.stringify(users));
+        localStorage.setItem("registrationData", JSON.stringify(users));
         alert("Registration successful!");
 	window.location.href = "login.html";
         form.reset();
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const passwordInput = document.getElementById("login-password").value;
 
         // Fetch users from localStorage
-        const users = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+        const users = JSON.parse(localStorage.getItem("registrationData")) || [];
 
         // Look for a matching user
         const matchedUser = users.find(user => user.trn === identifierInput && user.password === passwordInput);
