@@ -90,10 +90,10 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
 	document.getElementById("register-btn").addEventListener("click", function () {
 	    alert("Registration successful!");
 	    window.location.href = "login.html";
+	});
             users.push(newUser);
             localStorage.setItem("RegistrationData", JSON.stringify(users));
-            document.getElementById("registerForm").reset();
-	});	
+            document.getElementById("registerForm").reset();	
 
 	 // Create new user object
             const newUser = {
