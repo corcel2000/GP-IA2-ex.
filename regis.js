@@ -22,23 +22,26 @@ document.addEventListener("DOMContentLoaded", function () {
         const monthDiff = today.getMonth() - birthDate.getMonth();
         const dayDiff = today.getDate() - birthDate.getDate();
         
-	if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
             age--;
         }
 
         if (age < 18) {
             alert("You must be at least 18 years old to register.");
+            return; // Stop further execution
         }
 
         // Password length
         if (password.length < 8) {
             alert("Password must be at least 8 characters long.");
+            return; // Stop further execution
         }
-	    
+        
         // TRN format
         const trnPattern = /^\d{3}-\d{3}-\d{3}$/;
         if (!trnPattern.test(trn)) {
             alert("TRN must be in the format 000-000-000.");
+            return; // Stop further execution
         }
 
         // Get existing users
@@ -47,10 +50,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // TRN uniqueness check
         if (users.some(user => user.trn === trn)) {
             alert("TRN already registered.");
+            return; // Stop further execution
         }
 
         // New user object
-        const newUser = {
+        const newUser  = {
             firstName: firstname,
             lastName: lastname,
             dob: dob,
@@ -65,12 +69,13 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         // Save and redirect
-        users.push(newUser);
+        users.push(newUser );
         localStorage.setItem("registrationData", JSON.stringify(users));
         alert("Registration successful!");
-	console.log(Redirecting...);
-	window.location.href = "login.html";
+        console.log("Redirecting...");
+        window.location.href = "login.html"; // Redirect to login page
         form.reset();
+    });
 
     cancelBtn.addEventListener("click", function () {
         form.reset();
