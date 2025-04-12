@@ -39,7 +39,7 @@ window.addEventListener('load', () => {
 // Register script Section
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("form");
-    const cancel-btn = document.getElementById("cancel-btn");
+    const cancelBtn = document.getElementById("cancel-btn");
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
         form.reset();
         
 
-    cancel-btn.addEventListener("click", function () {
+    cancelBtn.addEventListener("click", function () {
         form.reset();
     });
 });
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "creation_studio.html";
         } else {
             attempts++;
-            alert(`Invalid login. You have ${maxAttempts - attempts} attempts left.`);
+            alert("Invalid login. You have ${maxAttempts - attempts} attempts left.");
 
             if (attempts >= maxAttempts) {
                 alert("Too many failed attempts! Redirecting to an error page.");
