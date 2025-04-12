@@ -72,7 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (password.length < 8) {
             alert("Password must be at least 8 characters long.");
         }
-
+	    
+        localStorage.setItem("registrationData", JSON.stringify(users));
+        alert("Registration successful!");
         // TRN format
         const trnPattern = /^\d{3}-\d{3}-\d{3}$/;
         if (!trnPattern.test(trn)) {
