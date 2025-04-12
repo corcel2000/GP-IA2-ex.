@@ -38,10 +38,10 @@ window.addEventListener('load', () => {
 
 // Register script Section
 document.addEventListener("DOMContentLoaded", function () {
-    const registerForm = document.getElementById("registerForm");
+    const form = document.getElementById("form");
     const cancelBtn = document.getElementById("cancel-btn");
 
-    registerForm.addEventListener("submit", function (event) {
+    form.addEventListener("submit", function (event) {
         event.preventDefault();
 
         const firstname = document.getElementById("firstname").value.trim();
@@ -110,12 +110,12 @@ document.addEventListener("DOMContentLoaded", function () {
         users.push(newUser);
         localStorage.setItem("RegistrationData", JSON.stringify(users));
         alert("Registration successful!");
-        registerForm.reset();
+        form.reset();
         window.location.href = "login.html";
     });
 
-    cancelBtn.addEventListener("click", function () {
-        registerForm.reset();
+    cancel-btn.addEventListener("click", function () {
+        form.reset();
     });
 });
 
