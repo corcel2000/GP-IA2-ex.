@@ -1,0 +1,563 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 95%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.logo span {
+    color: #00ff99;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #00ff99;
+}
+
+.cart-icon {
+    font-size: 20px;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('background.jpg') no-repeat center center/cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.hero-image {
+    margin-top: 20px;
+    width: 560px;
+    height: auto;
+}
+
+/* Login Page Styles */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+fieldset.login {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid #00ff99;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+}
+
+legend {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ff99;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+button#login-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #00ff99;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button#login-btn:hover {
+    background: #00cc77;
+}
+
+input[type="checkbox"] {
+    margin-top: 10px;
+}
+
+p a {
+    color: #00ff99;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 400px) {
+    fieldset.login {
+        width: 90%;
+    }
+}
+
+/* Register Page Styles */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+fieldset.register {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #00ff99;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 255, 153, 0.5);
+}
+
+legend {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ff99;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-top: 2px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+button#register-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #00ff99;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button#register-btn:hover {
+    background: #00cc77;
+}
+
+button#cancel-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #00ff99;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button#cancel-btn:hover {
+    background: #00cc77;
+}
+
+
+input[type="checkbox"] {
+    margin-top: 10px;
+}
+
+p a {
+    color: #00ff99;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 400px) {
+    fieldset.register {
+        width: 90%;
+    }
+}
+
+/* Error Page Styles */
+.error-container {
+    text-align: center;
+    margin-top: 15%;
+    color: #fff;
+}
+
+.error-container h1 {
+    font-size: 36px;
+    color: red;
+}
+
+.error-container p {
+    font-size: 18px;
+}
+
+.error-container a {
+    color: #00ff99;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.error-container a:hover {
+    text-decoration: underline;
+}
+
+
+/* Shop styles Section*/
+.shop-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 25px;
+    transparency: 50%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.shop-container h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.product {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product h2 {
+    font-size: 1.5em;
+    margin: 15px 0;
+}
+
+.product p {
+    font-size: 1.2em;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.add-to-cart {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.add-to-cart:hover {
+    background-color: #e55347;
+}
+
+.shop-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.shop-actions button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.shop-actions button:hover {
+    background-color: #0056b3;
+}
+
+#cancel {
+    background-color: #dc3545;
+}
+
+#cancel:hover {
+    background-color: #c82333;
+}
+
+#exit {
+    background-color: #6c757d;
+}
+
+#exit:hover {
+    background-color: #5a6268;
+}
+
+/* Invoice Page Styles */
+.invoice-container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: grey;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-container h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.invoice-details table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+.invoice-details table th, .invoice-details table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.invoice-details table th {
+    background-color: #f4f4f4;
+}
+
+.totals {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.totals p {
+    margin-bottom: 10px;
+}
+
+.invoice-actions {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.invoice-actions button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.invoice-actions button:hover {
+    background-color: #0056b3;
+}
+
+
+/* About Us Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 50px;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar img {
+    height: 40px;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.menu a:hover,
+.menu a.active {
+    color: #00ff99;
+}
+
+.navbar-cart-icon {
+    height: 20px;
+}
+
+/* About Us Section */
+.about-container {
+    width: 80%;
+    margin: 100px auto 20px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 255, 153, 0.2);
+    text-align: center;
+}
+
+.about-container h1 {
+    font-size: 36px;
+    color: #00ff99;
+}
+
+.about-container h2 {
+    color: #00ff99;
+}
+
+.about-container ul {
+    list-style-type: square;
+    text-align: left;
+    display: inline-block;
+}
+
+.about-container p,
+.about-container ul {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+

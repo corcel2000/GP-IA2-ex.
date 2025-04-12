@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Creation Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="Assets/Logo.jpg" alt="Home" width="25" height="25">
+            <div class="logo">Creation <span>Studio</span></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="creation_studio.html">Home</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="#cart" class="cart-icon">🛒</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="shop-container">
+        <h1>Shop Collection</h1>
+        <div class="products-grid">
+            <div class="product">
+                <img src="Assets/PreSonus Audio interface.jpg" alt="PreSonus Audio interface">
+                <h2>PreSonus Audio interface</h2>
+                <p>PreSonus AudioBox iTwo 2x2 USB/iPad Audio Interface</p>
+                <p>$30,814.34</p>
+                <button class="add-to-cart" onclick="addToCart(1)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Assets/Drum-kit image.jpg" alt="Drum-kit">
+                <h2>Drum-kit</h2>
+                <p>Roland V-Drums Acoustic Design VAD507 Drum Kit</p>
+                <p>$783,405.29</p>
+                <button class="add-to-cart" onclick="addToCart(2)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Assets/Keyboard image.jpg" alt="Keyboard">
+                <h2>Keyboard</h2>
+                <p>Pa5X Professional Arranger Keyboard</p>
+                <p>$830,574.15</p>
+                <button class="add-to-cart" onclick="addToCart(3)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Assets/EV-Wedge Speaker Image.jpg" alt="EV-Wedge Speaker">
+                <h2>EV-Wedge Speaker</h2>
+                <p>Electro-Voice Live X 112P Speaker 1000W 12 Inch</p>
+                <p>$282,202.75</p>
+                <button class="add-to-cart" onclick="addToCart(4)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Assets/Microphone Image.jpg" alt="Microphone">
+                <h2>Microphone</h2>
+                <p>ALABS XLR Podcast Microphone - Professional Condenser Studio Mic</p>
+                <p>$7,859.23</p>
+                <button class="add-to-cart" onclick="addToCart(5)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Assets/Headphones.jpg" alt="Headphones">
+                <h2>Headphones</h2>
+                <p>beyerdynamic DT 700 PRO X Closed-back studio headphones</p>
+                <p>$42,350.85</p>
+                <button class="add-to-cart" onclick="addToCart(6)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Assets/XLR Audio Cable.jpg" alt="XLR Audio Cable">
+                <h2>XLR Audio Cable</h2>
+                <p>Pro Series - Studio & Live XLR Cable 20'(6.1 meters)</p>
+                <p>$5,816.99</p>
+                <button class="add-to-cart" onclick="addToCart(7)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Assets/Record Player.jpg" alt="Record Player">
+                <h2>Record Player</h2>
+                <p>Silcron Encore Vinyl/Record Player Turntable with PC Encoding 33/45RPM - Black</p>
+                <p>$34,430.31</p>
+                <button class="add-to-cart" onclick="addToCart(8)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Assets/Guitar image.jpg" alt="Guitar">
+                <h2>Guitar</h2>
+                <p>40 inch Acoustic Guitar-Full Size Black Guitar Beginner Set</p>
+                <p>$47,007.59</p>
+                <button class="add-to-cart" onclick="addToCart(9)">Add to Cart</button>
+            </div>
+        </div>
+        <div class="shop-actions">
+            <button id="checkout">Checkout</button>
+            <button id="cancel">Cancel</button>
+            <button id="exit">Exit</button>
+        </div>
+    </section>
+</body>
+</html>

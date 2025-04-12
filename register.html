@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script> 
+</head>
+<body>
+    <form id="registerForm">
+        <div class="container">
+	<fieldset class="register">
+                <legend>Register</legend>
+		<label for="firstname">First name <span style="color: red;">*</span></label>
+                <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required>
+                
+                <label for="lastname">Last name <span style="color: red;">*</span></label>
+                <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required>
+		
+ 		<label for="trn">TRN (000-000-000): <span style="color: red;">*</span></label>
+                <input type="text" id="trn" name="trn" placeholder="Enter your TRN" required>
+
+		<label for="email">Email address <span style="color: red;">*</span></label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+                <label for="password">Password <span style="color: red;">*</span></label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required minlength="8">
+
+		<label for="phone">Phone <span style="color: red;">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+
+		<div class="date">
+		<label for="dob">Date of Birth <span style="color: red;">*</span></label>
+                <input type="date" id="dob" name="dob" placeholder="Enter your Date of Birth" required>
+		</div>
+
+		<label for="gender">Gender <span style="color: red;">*</span></label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+		
+		<p id="errorMessage" style="color: red; font-weight: bold;"></p>
+                
+		<button type="submit" id="register-btn">REGISTER</button>
+		<button type="button" id="cancel-btn">CANCEL</button>
+
+            </fieldset>
+
+        </div>
+    </form>
+
+    </body>
+</html>

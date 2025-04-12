@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice - CreationStudio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+	    <img src="Assets/Logo.jpg" alt="Home" width="20" height="20">
+            <div class="logo">Creation <span>Studio</span></div>
+	</div>
+        <nav>
+            <ul>
+                <li><a href="creation_studio.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="#cart" class="cart-icon">🛒</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="invoice-container">
+        <h1>Your Invoice</h1>
+        <div class="invoice-details">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="invoice-items">
+                    <!-- Dynamically filled with JavaScript -->
+                </tbody>
+            </table>
+            <div class="totals">
+                <p><strong>Subtotal:</strong> $<span id="subtotal">0.00</span></p>
+                <p><strong>Tax (10%):</strong> $<span id="tax">0.00</span></p>
+                <p><strong>Total:</strong> $<span id="total">0.00</span></p>
+            </div>
+            <div class="invoice-actions">
+                <button id="exit">Exit</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

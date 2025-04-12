@@ -1,0 +1,29 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script> 
+</head>
+<body>
+    <form id="form">
+        <div class="container">
+            <fieldset class="login">
+                <legend>Login</legend>
+                <label for="trn">TRN (e.g. 123-456-789) <span style="color: red;">*</span></label>
+                <input type="text" id="trn" name="trn" placeholder="123-456-789" required>
+                
+                <label for="password">Password <span style="color: red;">*</span></label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                
+                <button type="submit" id="login-btn">LOGIN</button>
+                <input type="checkbox" id="remember"><label for="remember">Remember me</label>
+                <p><a href="#" id="resetLink">Lost your password?</a></p>
+            </fieldset>
+        </div>
+    </form>
+
+    </body>
+</html>
