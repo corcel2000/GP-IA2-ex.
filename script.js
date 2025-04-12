@@ -36,6 +36,7 @@ window.addEventListener('load', () => {
     }
 });
 
+// Register script Section
 document.addEventListener("DOMContentLoaded", function () {
     const registerForm = document.getElementById("registerForm");
     const cancelBtn = document.getElementById("cancel-btn");
@@ -58,7 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
         let age = today.getFullYear() - birthDate.getFullYear();
         const monthDiff = today.getMonth() - birthDate.getMonth();
         const dayDiff = today.getDate() - birthDate.getDate();
-        if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+        
+	if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
             age--;
         }
 
@@ -116,7 +118,8 @@ document.addEventListener("DOMContentLoaded", function () {
         registerForm.reset();
     });
 });
-// Login script Section
+
+/* Login script Section */
 document.addEventListener("DOMContentLoaded", function () {
     let attempts = 0;
     const maxAttempts = 3;
@@ -124,13 +127,17 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("form").addEventListener("submit", function (event) {
         event.preventDefault();
 
-	const trn = document.getElementById("trn").value.trim();
- 	const password = document.getElementById("password").value;
- 	const users = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+        const identifierInput = document.getElementById("login-identifier").value.trim();
+        const passwordInput = document.getElementById("login-password").value;
 
-        if ((user.trn === trn) && user.password === password) {
+        // Fetch users from localStorage
+        const users = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+
+        // Look for a matching user
+        const matchedUser = users.find(user => user.trn === identifierInput && user.password === passwordInput);
+
+        if (matchedUser) {
             alert("Login successful!");
-	    attempts = 0; // reset attempts
             window.location.href = "creation_studio.html";
         } else {
             attempts++;
