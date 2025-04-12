@@ -48,9 +48,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const lastname = document.getElementById("lastname").value.trim();
         const dob = document.getElementById("dob").value;
         const gender = document.getElementById("gender").value;
-        const phone = document.getElementById("phone").value.trim();
+        const phone = document.getElementById("phone").value;
         const email = document.getElementById("email").value.trim();
-        const trn = document.getElementById("trn").value.trim();
+        const trn = document.getElementById("trn").value;
         const password = document.getElementById("password").value;
 
         // Age check
@@ -106,7 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
         users.push(newUser);
         localStorage.setItem("registrationData", JSON.stringify(users));
         alert("Registration successful!");
-	console.log(Redirecting...);
 	window.location.href = "login.html";
         form.reset();
 
