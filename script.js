@@ -38,7 +38,7 @@ window.addEventListener('load', () => {
 
 // Register script Section
 document.getElementById("registerForm").addEventListener("submit", function (event) {
-            e.preventDefault();
+            event.preventDefault();
 
             const firstname = document.getElementById("firstname").value.trim();
             const lastname = document.getElementById("lastname").value.trim();
@@ -86,15 +86,6 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
                 return;
             }
 	
-            // Save to localStorage
-	document.getElementById("register-btn").addEventListener("click", function () {
-	    alert("Registration successful!");
-	    window.location.href = "login.html";
-	});
-            users.push(newUser);
-            localStorage.setItem("RegistrationData", JSON.stringify(users));
-            document.getElementById("registerForm").reset();	
-
 	 // Create new user object
             const newUser = {
                 firstName: firstname,
@@ -108,7 +99,14 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
                 registrationDate: new Date().toISOString(),
                 cart: {},
                 invoices: []
-            };
+	};
+            // Save to localStorage
+	document.getElementById("register-btn").addEventListener("click", function () {
+        users.push(newUser);
+	localStorage.setItem("RegistrationData", JSON.stringify(users));
+        alert("Registration successful!");
+        document.getElementById("registerForm").reset();
+        window.location.href = "login.html";
 
         });
 
