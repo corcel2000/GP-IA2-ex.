@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
         users.push(newUser);
         localStorage.setItem("registrationData", JSON.stringify(users));
         alert("Registration successful!");
+	console.log(Redirecting...);
 	window.location.href = "login.html";
         form.reset();
 
