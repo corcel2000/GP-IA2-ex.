@@ -65,22 +65,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (age < 18) {
-		function myFunction() {
-            alert("You must be at least 18 years old to register.");}
-            return;
+            alert("You must be at least 18 years old to register.");
         }
 
         // Password length
         if (password.length < 8) {
             alert("Password must be at least 8 characters long.");
-            return;
         }
 
         // TRN format
         const trnPattern = /^\d{3}-\d{3}-\d{3}$/;
         if (!trnPattern.test(trn)) {
             alert("TRN must be in the format 000-000-000.");
-            return;
         }
 
         // Get existing users
@@ -89,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // TRN uniqueness check
         if (users.some(user => user.trn === trn)) {
             alert("TRN already registered.");
-            return;
         }
 
         // New user object
@@ -113,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Registration successful!");
 	window.location.href = "login.html";
         form.reset();
-        
 
     cancelBtn.addEventListener("click", function () {
         form.reset();
