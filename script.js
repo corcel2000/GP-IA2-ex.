@@ -110,8 +110,9 @@ document.addEventListener("DOMContentLoaded", function () {
         users.push(newUser);
         localStorage.setItem("RegistrationData", JSON.stringify(users));
         alert("Registration successful!");
+	window.location.href = "login.html";
         form.reset();
-        window.location.href = "login.html";
+        
     });
 
     cancel-btn.addEventListener("click", function () {
