@@ -101,9 +101,9 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
                 invoices: []
 	};
             // Save to localStorage
-	document.getElementById("register-btn").addEventListener("click", function () {
         users.push(newUser);
 	localStorage.setItem("RegistrationData", JSON.stringify(users));
+	
         alert("Registration successful!");
         document.getElementById("registerForm").reset();
         window.location.href = "login.html";
@@ -111,7 +111,7 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
         });
 
         document.getElementById("cancel-btn").addEventListener("click", function () {
-            document.getElementById("registerForm").reset();
+        document.getElementById("registerForm").reset();
         });
 
 // Login script Section
