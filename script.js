@@ -37,7 +37,7 @@ window.addEventListener('load', () => {
 });
 
 // Register script Section
-document.getElementById("registerForm").addEventListener("submit", function (e) {
+document.getElementById("registerForm").addEventListener("submit", function (event) {
             e.preventDefault();
 
             const firstname = document.getElementById("firstname").value.trim();
@@ -60,20 +60,20 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
                 age--;
             }
             if (age < 18) {
-                errorMessage.textContent = "You must be at least 18 years old to register.";
+                alert("You must be at least 18 years old to register.");
                 return;
             }
 
             // Check password
             if (password.length < 8) {
-                errorMessage.textContent = "Password must be at least 8 characters long.";
+                alert("Password must be at least 8 characters long.");
                 return;
             }
 
             // Check TRN format
             const trnPattern = /^\d{3}-\d{3}-\d{3}$/;
             if (!trnPattern.test(trn)) {
-                errorMessage.textContent = "TRN must be in the format 000-000-000.";
+                alert("TRN must be in the format 000-000-000.");
                 return;
             }
 
@@ -82,15 +82,15 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
 
             // Check TRN uniqueness
             if (users.some(user => user.trn === trn)) {
-                errorMessage.textContent = "TRN already registered.";
+                alert("TRN already registered.");
                 return;
             }
 	
             // Save to localStorage
+	    alert("Registration successful!");
+	    window.location.href = "login.html";
             users.push(newUser);
             localStorage.setItem("RegistrationData", JSON.stringify(users));
-            alert("Registration successful!");
-	    window.location.href = "login.html";
             document.getElementById("registerForm").reset();
 
 	 // Create new user object
