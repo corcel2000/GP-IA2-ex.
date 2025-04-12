@@ -65,7 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         if (age < 18) {
-            alert("You must be at least 18 years old to register.");
+		function myFunction() {
+            alert("You must be at least 18 years old to register.");}
             return;
         }
 
