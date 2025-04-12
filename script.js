@@ -113,7 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	window.location.href = "login.html";
         form.reset();
         
-    });
 
     cancel-btn.addEventListener("click", function () {
         form.reset();
