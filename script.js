@@ -114,7 +114,6 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
 
         document.getElementById("cancel-btn").addEventListener("click", function () {
             document.getElementById("registerForm").reset();
-            document.getElementById("errorMessage").textContent = "";
         });
 
 // Login script Section
