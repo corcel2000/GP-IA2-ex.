@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loginForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            const trnInput = document.getElementById("trn").value.trim();
+            const trnInput = document.getElementById("trn").value;
             const passwordInput = document.getElementById("password").value;
 
             const users = JSON.parse(localStorage.getItem("registrationData")) || [];
