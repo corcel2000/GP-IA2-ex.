@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("form");
     const cancelBtn = document.getElementById("cancel-btn");
 
-    // Utility to remove dashes from TRNs
+    // Utility function to normalize TRN by removing dashes
     const normalizeTRN = trn => trn.replace(/-/g, "");
 
     if (loginForm) {
@@ -108,15 +108,17 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             if (matchedUser) {
-                alert("Login successful!");
-                window.location.href = "creation_studio.html";
+                // Use confirm instead of alert to ensure the user acknowledges the message
+                if (confirm("Login successful!")) {
+                    window.location.href = "creation_studio.html";
+                }
             } else {
                 attempts++;
-                alert(`Invalid login. You have ${maxAttempts - attempts} attempts left.`);
-
                 if (attempts >= maxAttempts) {
                     alert("Too many failed attempts! Redirecting to an error page.");
                     window.location.href = "error.html";
+                } else {
+                    alert(`Invalid login. You have ${maxAttempts - attempts} attempts left.`);
                 }
             }
         });
