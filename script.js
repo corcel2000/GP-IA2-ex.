@@ -124,8 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const maxAttempts = 3;
 
     const loginForm = document.getElementById("form");
+    const cancelBtn = document.getElementById("cancel-btn");
 
-    // Only run login logic if login form is present
     if (loginForm) {
         loginForm.addEventListener("submit", function (event) {
             event.preventDefault();
@@ -142,16 +142,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.location.href = "creation_studio.html";
             } else {
                 attempts++;
-                alert(`Invalid login. You have ${maxAttempts - attempts} attempts left.`);
+                alert("Invalid login. You have ${maxAttempts - attempts} attempts left.");
 
                 if (attempts >= maxAttempts) {
                     alert("Too many failed attempts! Redirecting to an error page.");
                     window.location.href = "error.html";
                 }
             }
-		 cancelBtn.addEventListener("click", function () {
-        	 form.reset();
         });
+
+        // Cancel button resets the form
+        if (cancelBtn) {
+            cancelBtn.addEventListener("click", function () {
+                loginForm.reset();
+            });
+        }
     }
 });
 
