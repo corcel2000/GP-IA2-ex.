@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const gender = document.getElementById("gender").value;
         const phone = document.getElementById("phone").value;
         const email = document.getElementById("email").value.trim();
-        const trn = document.getElementById("trn").value;
-        const password = document.getElementById("password").value;
+        const trn = document.getElementById("trn").value.trim();
+        const password = document.getElementById("password").value.trim();
 
         // Age check
         const birthDate = new Date(dob);
@@ -126,16 +126,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("form");
     const cancelBtn = document.getElementById("cancel-btn");
 
+    // Utility to remove dashes from TRNs
+    const normalizeTRN = trn => trn.replace(/-/g, "");
+
     if (loginForm) {
         loginForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
-            const trnInput = document.getElementById("trn").value;
-            const passwordInput = document.getElementById("password").value;
+            const trnInput = document.getElementById("trn").value.trim();
+            const passwordInput = document.getElementById("password").value.trim();
 
             const users = JSON.parse(localStorage.getItem("registrationData")) || [];
 
-            const matchedUser = users.find(user => user.trn === trnInput && user.password === passwordInput);
+            const matchedUser = users.find(user =>
+                normalizeTRN(user.trn) === normalizeTRN(trnInput) &&
+                user.password === passwordInput
+            );
 
             if (matchedUser) {
                 alert("Login successful!");
