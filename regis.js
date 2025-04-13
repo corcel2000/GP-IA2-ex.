@@ -81,3 +81,51 @@ document.addEventListener("DOMContentLoaded", function () {
         form.reset();
     });
 });
+
+/* Login script Section */
+document.addEventListener("DOMContentLoaded", function () {
+    let attempts = 0;
+    const maxAttempts = 3;
+
+    const loginForm = document.getElementById("form");
+    const cancelBtn = document.getElementById("cancel-btn");
+
+    // Utility to remove dashes from TRNs
+    const normalizeTRN = trn => trn.replace(/-/g, "");
+
+    if (loginForm) {
+        loginForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const trnInput = document.getElementById("trn").value.trim();
+            const passwordInput = document.getElementById("password").value.trim();
+
+            const users = JSON.parse(localStorage.getItem("registrationData")) || [];
+
+            const matchedUser = users.find(user =>
+                normalizeTRN(user.trn) === normalizeTRN(trnInput) &&
+                user.password === passwordInput
+            );
+
+            if (matchedUser) {
+                alert("Login successful!");
+                window.location.href = "creation_studio.html";
+            } else {
+                attempts++;
+                alert(`Invalid login. You have ${maxAttempts - attempts} attempts left.`);
+
+                if (attempts >= maxAttempts) {
+                    alert("Too many failed attempts! Redirecting to an error page.");
+                    window.location.href = "error.html";
+                }
+            }
+        });
+
+        // Cancel button resets the form
+        if (cancelBtn) {
+            cancelBtn.addEventListener("click", function () {
+                loginForm.reset();
+            });
+        }
+    }
+});
