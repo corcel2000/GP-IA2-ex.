@@ -145,6 +145,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     window.location.href = "error.html";
                 }
             }
+		 cancelBtn.addEventListener("click", function () {
+        	 form.reset();
         });
     }
 });
