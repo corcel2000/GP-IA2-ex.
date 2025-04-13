@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.location.href = "creation_studio.html";
             } else {
                 attempts++;
-                alert("Invalid login. You have ${maxAttempts - attempts} attempts left.");
+                alert(`Invalid login. You have ${maxAttempts - attempts} attempts left.`);
 
                 if (attempts >= maxAttempts) {
                     alert("Too many failed attempts! Redirecting to an error page.");
