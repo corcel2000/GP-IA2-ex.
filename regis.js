@@ -118,18 +118,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
-
-            const newPassword = prompt("Enter your new password:");
-            if (!newPassword) return;
-
-            registrationData[userIndex].password = newPassword;
-            localStorage.setItem("registrationData", JSON.stringify(registrationData));
-            alert("Password has been successfully updated.");
-        });
-    }
-});
-
 // Reset Password Handler
 document.addEventListener("DOMContentLoaded", () => {
     const resetLink = document.getElementById("reset-password-link");
