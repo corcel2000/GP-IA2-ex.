@@ -124,12 +124,17 @@ document.addEventListener("DOMContentLoaded", () => {
         resetLink.addEventListener("click", function (e) {
             e.preventDefault();
 
-            const trn = prompt("Enter your TRN to reset your password:");
-            if (!trn) return;
+            const inputTRN = prompt("Enter your TRN to reset your password:");
+            if (!inputTRN) return;
+
+            const normalizeTRN = trn => trn.replace(/-/g, "").trim();
+            const normalizedInput = normalizeTRN(inputTRN);
 
             const registrationData = JSON.parse(localStorage.getItem("registrationData")) || [];
 
-            const userIndex = registrationData.findIndex(user => user.trn === trn);
+            const userIndex = registrationData.findIndex(user => 
+                normalizeTRN(user.trn) === normalizedInput
+            );
 
             if (userIndex === -1) {
                 alert("TRN not found. Please make sure you are registered.");
@@ -145,3 +150,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
