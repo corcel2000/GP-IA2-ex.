@@ -115,3 +115,33 @@ document.addEventListener("DOMContentLoaded", function () {
         cancelBtn.addEventListener("click", () => form.reset());
     }
 });
+
+// Reset Password Handler
+document.addEventListener("DOMContentLoaded", () => {
+    const resetLink = document.getElementById("reset-password-link");
+
+    if (resetLink) {
+        resetLink.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const trn = prompt("Enter your TRN to reset your password:");
+            if (!trn) return;
+
+            const registrationData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+
+            const userIndex = registrationData.findIndex(user => user.trn === trn);
+
+            if (userIndex === -1) {
+                alert("TRN not found. Please make sure you are registered.");
+                return;
+            }
+
+            const newPassword = prompt("Enter your new password:");
+            if (!newPassword) return;
+
+            registrationData[userIndex].password = newPassword;
+            localStorage.setItem("RegistrationData", JSON.stringify(registrationData));
+            alert("Password has been successfully updated.");
+        });
+    }
+});
