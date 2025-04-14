@@ -1,3 +1,4 @@
+// Register script Section
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("form");
     const cancelBtn = document.getElementById("cancel-btn");
@@ -5,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Exit if form doesn't exist
     if (!form || !cancelBtn) return;
 
-    // === REGISTRATION LOGIC ===
+    // Registration Logic
     const isRegisterForm = document.getElementById("firstname") && document.getElementById("dob");
 
     if (isRegisterForm) {
@@ -76,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cancelBtn.addEventListener("click", () => form.reset());
     }
 
-    // === LOGIN LOGIC ===
+    // Login script Section
     const isLoginForm = document.getElementById("trn") && document.getElementById("password") && !isRegisterForm;
 
     if (isLoginForm) {
