@@ -1,3 +1,5 @@
+// Utility function to normalize TRN (removes dashes)
+const normalizeTRN = trn => trn.replace(/-/g, "").trim();
 // Register script Section
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("form");
@@ -127,3 +129,28 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+// Reset Password Handler
+document.addEventListener("DOMContentLoaded", () => {
+    const resetLink = document.getElementById("reset-password-link");
+
+    if (resetLink) {
+        resetLink.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const inputTRN = prompt("Enter your TRN to reset your password:");
+            if (!inputTRN) return;
+
+            const normalizeTRN = trn => trn.replace(/-/g, "").trim();
+            const normalizedInput = normalizeTRN(inputTRN);
+
+            const registrationData = JSON.parse(localStorage.getItem("registrationData")) || [];
+
+            const userIndex = registrationData.findIndex(user => 
+                normalizeTRN(user.trn) === normalizedInput
+            );
+
+            if (userIndex === -1) {
+                alert("TRN not found. Please make sure you are registered.");
+                return;
+            }
