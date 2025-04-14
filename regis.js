@@ -1,3 +1,5 @@
+// Utility function to normalize TRN (removes dashes)
+const normalizeTRN = trn => trn.replace(/-/g, "").trim();
 // Register script Section
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("form");
