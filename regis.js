@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const trn = prompt("Enter your TRN to reset your password:");
             if (!trn) return;
 
-            const registrationData = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+            const registrationData = JSON.parse(localStorage.getItem("registrationData")) || [];
 
             const userIndex = registrationData.findIndex(user => user.trn === trn);
 
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!newPassword) return;
 
             registrationData[userIndex].password = newPassword;
-            localStorage.setItem("RegistrationData", JSON.stringify(registrationData));
+            localStorage.setItem("registrationData", JSON.stringify(registrationData));
             alert("Password has been successfully updated.");
         });
     }
