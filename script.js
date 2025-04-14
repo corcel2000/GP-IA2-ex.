@@ -36,45 +36,6 @@ window.addEventListener('load', () => {
     }
 });
 
-    // Login script Section
-    const isLoginForm = document.getElementById("trn") && document.getElementById("password") && !isRegisterForm;
-
-    if (isLoginForm) {
-        let attempts = 0;
-        const maxAttempts = 3;
-        const normalizeTRN = trn => trn.replace(/-/g, "");
-
-        form.addEventListener("submit", function (event) {
-            event.preventDefault();
-
-            const trnInput = document.getElementById("trn").value.trim();
-            const passwordInput = document.getElementById("password").value.trim();
-            const users = JSON.parse(localStorage.getItem("registrationData")) || [];
-
-            const matchedUser = users.find(user =>
-                normalizeTRN(user.trn) === normalizeTRN(trnInput) &&
-                user.password === passwordInput
-            );
-
-            if (matchedUser) {
-                if (confirm("Login successful! Click OK to proceed.")) {
-                    window.location.href = "creation_studio.html";
-                }
-            } else {
-                attempts++;
-                if (attempts >= maxAttempts) {
-                    alert("Too many failed attempts! Redirecting to an error page.");
-                    window.location.href = "error.html";
-                } else {
-                    alert(`Invalid login. You have ${maxAttempts - attempts} attempts left.`);
-                }
-            }
-        });
-
-        cancelBtn.addEventListener("click", () => form.reset());
-    }
-});
-
 // Shop products list for dynamic displaying
 let products = [
     { id: 1, name: "PreSonus Audio Interface", price: 30814.34, description: "PreSonus AudioBox iTwo 2x2 USB/iPad Audio Interface", img: "Assets/PreSonus Audio interface.jpg" },
